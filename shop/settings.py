@@ -25,7 +25,7 @@ SECRET_KEY = 'x+^19x@=+t&gvy$-#jyl%n!1o6-8n5zvorics^f@^*4%y9b-jf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['colabmarket.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['colabmarket.herokuapp.com', 'colabmarke.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
