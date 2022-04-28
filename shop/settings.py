@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x+^19x@=+t&gvy$-#jyl%n!1o6-8n5zvorics^f@^*4%y9b-jf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['colabmarket.herokuapp.com', 'colabmarke.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
