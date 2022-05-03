@@ -65,13 +65,10 @@ def create_cart(request, slug):
 	return redirect("core:detail-product", slug=slug)
 
 
-
 def clear(request):
 	Order.objects.filter(user=request.user).delete()
 	Cart.objects.filter(user=request.user).delete()
 	return redirect("/")
-
-
 
 
 def SummaPage(request):
