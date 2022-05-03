@@ -13,6 +13,7 @@ class Product(models.Model):
 	price = models.IntegerField(default=0)
 	image = models.ImageField(upload_to = '', default = 'none/no-img.jpg')
 	slug = models.SlugField()
+	category = models.CharField(max_length=200, default='fruit')
 	def __str__(self):
 		return self.title
 

@@ -12,12 +12,12 @@
 
 {% for item in object_list %}
 <div class="col-lg-3 col-md-6 mb-4">
-<div class="card">
+<div class="card" style="border-radius: 15px;">
   <a href="{%url 'product:detail-product' item.slug %}"><img src="{{ MEDIA_URL }}{{ item.image.url }}" class="card-img-top" alt="img"></a>
   <div class="card-body">
     <a href="{%url 'product:detail-product' item.slug %}"><h5 class="card-title">{{ item.title }}</h5></a>
-
-    <a class="btn btn-warning" href="{% url 'product:create-cart' item.slug %}">{{ item.price }}$</a>
+    <p><strong>{{ item.price }} $</strong></p>
+    <a class="btn btn-warning" style="width: 200px; border-radius: 8px;" href="{% url 'product:create-cart' item.slug %}">Add to Cart</a>
   </div>
 </div>
 </div>

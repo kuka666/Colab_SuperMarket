@@ -24,7 +24,7 @@
             <td>{{ order_item.product.desc|slice:"50" }}</td>
             <td>{{ order_item.product.price }}$</td>
             <td>
-              <a class='btn btn-danger float-left' href='/delete-by-id?id='+{{order_item.product.id}}>Delete</a>
+              <a class='btn btn-danger float-left' href='/delete-by-id?id=' + {{order_item.product.id}}>Delete</a>
             </td>
         </tr>
     {% endfor %}
