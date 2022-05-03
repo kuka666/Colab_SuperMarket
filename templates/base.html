@@ -1,29 +1,19 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>{% block head_title %}{% endblock %}</title>
     {% block extra_head %}
     {% endblock %}
-    
-
-
-{% load static %}
-
-
-<link rel="stylesheet" href='{% static "/bootstrap/css/bootstrap.min.css" %}' integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-<script src='{% static "/bootstrap/js/bootstrap.min.js" %}' integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href={%url 'product:list-product' %}>Colab</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #212529;">
+      <a class="navbar-brand" href={%url 'product:list-product' %}><img src="{% static 'images/logo.png' %}" style="width: 100px;" alt="img"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,7 +27,7 @@
         </ul>
         <div class="form-inline my-2 my-lg-0">
              <a href={%url 'product:summary' %}>
-                <img  id="cart-icon" style="width:25px; display: inline-block;" src="{% static 'admin/img/cart_image.png' %}">
+                <img  id="cart-icon" style="width:25px; display: inline-block;" src="{% static 'images/cart_image.png' %}">
             </a>
             <p id="cart-total" style="color: white;">{% load cart_item %} {% get_cart_item %}</p>
             {% if request.user.is_authenticated %}
@@ -78,5 +68,47 @@
     {% endblock %}
 
     </div>
+    <div class="d-flex flex-column h-100">
+    <footer class="w-100 py-4 flex-shrink-0" style="background-color: #212529;">
+      <div class="container py-4">
+          <div class="row gy-4 gx-5">
+              <div class="col-lg-4 col-md-6">
+                  <h5 class="h1 text-white">COLAB.</h5>
+                  <p class="small text-muted">𝘼 𝙛𝙚𝙬 𝙘𝙡𝙞𝙘𝙠𝙨 𝙞𝙨 𝙖𝙡𝙡 𝙞𝙩 𝙩𝙖𝙠𝙚𝙨.</p>
+                  <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved.</p>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                  <h5 class="text-white mb-3">Quick links</h5>
+                  <ul class="list-unstyled text-muted">
+                      <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">Home</a></li>
+                      <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">About</a></li>
+                      <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">Get started</a></li>
+                      <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">FAQ</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                  <h5 class="text-white mb-3">Quick links</h5>
+                  <ul class="list-unstyled text-muted">
+                      <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">Home</a></li>
+                      <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">About</a></li>
+                      <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">Get started</a></li>
+                      <li><a style="color: inherit; text-decoration: none; transition: all 0.3s;" href="#">FAQ</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                  <h5 class="text-white mb-3">Newsletter</h5>
+                  <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                  <form action="#">
+                      <div class="input-group mb-3">
+                          <input class="form-control" style="background: #212529;
+                          border-color: #545454;" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                          <button class="btn btn-primary" id="button-addon2" type="button">SEND</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </footer>
+</div>
   </body>
 </html>

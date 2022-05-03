@@ -101,17 +101,3 @@ class ClearCart(APIView):
 
 		return Response(content, status=status.HTTP_200_OK)
 
-class Delete_By_Id(APIView):
-
-	authentication_classes = (TokenAuthentication, SessionAuthentication)
-	permission_classes = (IsAuthenticated,)
-
-	
-	def get(self, request, id):
-
-		Order.objects.filter(user=request.user, id=id).delete()
-		Cart.objects.filter(user=request.user, id=id).delete()
-
-		content = {"detail": "sucessfully clear"}
-
-		return Response(content, status=status.HTTP_200_OK)
