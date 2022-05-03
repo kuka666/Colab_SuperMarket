@@ -1,4 +1,5 @@
 
+from re import template
 from django.views.generic import (
 	ListView, 
 	DetailView, 
@@ -21,6 +22,7 @@ from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
 
 
 
@@ -29,7 +31,17 @@ class ListPage(ListView):
 	paginate_by = 8
 	template_name = "product/list.html"
 
+class SearchResultsView(ListView):
+	model = Product
+	paginate_by = 8
+	template_name = "product/searchlist.html"
+	context_object_name = 'product'
 
+
+	def get_queryset(self):
+		query = self.request.GET.get('search')
+		products=Product.objects.filter(Q(title__icontains=query))
+		return products 
 
 class DetailPage(DetailView):
 	model = Product

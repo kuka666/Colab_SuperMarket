@@ -23,8 +23,15 @@
           <li class="nav-item active">
             <a class="nav-link" href=#>Store <span class="sr-only">(current)</span></a>
           </li>
+          <li>
+            <div class="search">
+              <form method="get" action="search" style="display:inline-flex;">
+              <input autocomplete="off" name="search" type="text" rel="Начните вводить название товара" placeholder="Начните вводить название товара" class="form-control"> <button type="submit" id="search">Search</button>
+            </form></div>
+          </li>
      
         </ul>
+        
         <div class="form-inline my-2 my-lg-0">
              <a href={%url 'product:summary' %}>
                 <img  id="cart-icon" style="width:25px; display: inline-block;" src="{% static 'images/cart_image.png' %}">
