@@ -4,7 +4,6 @@ from django.urls import path
 
 from django.conf.urls import include
 from django.urls import re_path as url
-
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -15,6 +14,5 @@ urlpatterns = [
     path('api/v1/', include(('api_product.urls', 'api-product'), namespace='api-product')),
     path('api/v1/accounts/', include(('api_accounts.urls', 'api-accounts'), namespace='api-accounts')),
     path('', include(('product.urls', 'product'), namespace='product')),
-
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
