@@ -100,4 +100,21 @@ class ClearCart(APIView):
 		content = {"detail": "sucessfully clear"}
 
 		return Response(content, status=status.HTTP_200_OK)
+	
+	
+class ClearCartOne(APIView):
+
+    authentication_classes = (TokenAuthentication, SessionAuthentication)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, **kwargs):
+        slug = self.kwargs['slug']
+        product = Product.objects.get(slug=slug)
+        user_login = request.user
+        Cart.objects.filter(user=request.user, product=product).delete()
+
+        content = {"detail": "sucessfully clear"}
+
+        return Response(content, status=status.HTTP_200_OK)
+
 
